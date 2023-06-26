@@ -12,7 +12,7 @@
 # Python version
 This project was generated with [Python](https://www.python.org/downloads/release/python-3913/) version 3.9.13.
 # YOLO version
-This project was generated with [YOLO](https://github.com/autogyro/yolo-V8) version YOLOV8.
+This project was generated with [YOLO](https://github.com/autogyro/yolo-V8) version YOLOV8..
 <p float="left">
   <img src="https://ultralytics.com/static/backgrounds/vision.svg" width="400" />
   <img src="https://ultralytics.com/static/yolov8/community.svg" width="400" /> 
