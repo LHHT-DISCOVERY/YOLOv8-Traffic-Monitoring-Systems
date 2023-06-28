@@ -17,9 +17,3 @@ This project was generated with [YOLO](https://github.com/autogyro/yolo-V8) vers
   <img src="https://ultralytics.com/static/backgrounds/vision.svg" width="400" />
   <img src="https://ultralytics.com/static/yolov8/community.svg" width="400" /> 
 </p><br><br>
-
-
-## Build
-install project `Run`: $git clone https://github.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-System.git
-## DEMO
-[![Video Title](https://i.vimeocdn.com/video/VIDEO_THUMBNAIL.jpg)](https://vimeo.com/VIDEO_ID)
