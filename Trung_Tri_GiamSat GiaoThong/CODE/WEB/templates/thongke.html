@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap Sidebar Menu with Submenu Example</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css"
+    />
+    <style>
+    #preloader {
+        background: #e5eff1 url('https://th.bing.com/th/id/R.5be365b4576b73da8de3e8e7cf5ba94d?rik=VllzSYmE6UTNRg&pid=ImgRaw&r=0') no-repeat center center;
+        background-size: 15%;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+      }
+      .display {
+        animation: opacity 5s forwards;
+      }
+      @keyframes opacity {
+        100% {
+          display: none;
+        }
+      }
+      body {
+        margin: 0;
+      }
+
+      .wrapper_main {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .wrapper_main .object {
+        display: flex;
+      }
+      .object .object-info__wrapper {
+        display: flex;
+        flex: 1;
+        background-color: #eaedf1;
+      }
+
+      .object .object-info {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 30px 40px;
+        margin-left: 70px;
+      }
+
+      .object-info .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .object-info .header .title {
+        display: flex;
+        gap: 0 20px;
+        align-items: center;
+        text-transform: uppercase;
+      }
+
+      .object-info .header .title p {
+        margin: 0;
+      }
+
+      .object-info .header .title p {
+        font-size: 35px;
+        font-weight: bold;
+      }
+
+      .object .object-info .content {
+        display: flex;
+        gap: 0 20px;
+      }
+
+      .object .object-info .content .content-left {
+        background-color: white;
+        padding: 30px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 450px;
+        border-radius: 20px;
+      }
+
+      .object .object-info .content .content-left .content-left__info {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-left
+        .content-left__chart
+        .radar-chart {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-left
+        .content-left__chart
+        .radar-chart
+        p {
+        font-weight: bold;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-vehicle {
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+        padding: 10px 20px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 15px;
+        cursor: pointer;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-vehicle:hover
+        .car-icon
+        img {
+        animation-name: weight;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-vehicle:hover
+        .vehicle-truck
+        img {
+        animation-name: weight;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-vehicle:hover
+        .vehicle-motor
+        img {
+        animation-name: height;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-vehicle:hover {
+        transition: all 0.2s linear;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+          rgba(17, 17, 26, 0.1) 0px 16px 56px,
+          rgba(17, 17, 26, 0.1) 0px 24px 80px;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-vehicle
+        p {
+        font-weight: bolder;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-vehicle
+        .report-vehicle__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-vehicle
+        .report-vehicle__content
+        .report-vehicle__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-vehicle
+        .report-vehicle__content
+        .report-vehicle__item
+        img {
+        height: 50px;
+        width: 50px;
+        object-fit: cover;
+      }
+
+      .object .object-info .content .content-right {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 20px;
+      }
+
+      .object .object-info .content .content-right .content-right__info {
+        display: flex;
+        gap: 0 20px;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-right
+        .content-right__info
+        .position,
+      .object
+        .object-info
+        .content
+        .content-right
+        .content-right__info
+        .address {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        width: 350px;
+        padding: 10px 15px;
+        background: white;
+        border-radius: 20px;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-right
+        .content-right__info
+        .position
+        .position-title,
+      .object
+        .object-info
+        .content
+        .content-right
+        .content-right__info
+        .address
+        .address-title {
+        display: flex;
+        align-items: center;
+        gap: 0 10px;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-right
+        .content-right__info
+        .position
+        .position-title
+        i,
+      .object
+        .object-info
+        .content
+        .content-right
+        .content-right__info
+        .address
+        .address-title
+        i {
+        padding: 5px;
+        background: #ff5d6d;
+        color: white;
+        height: 15px;
+        width: 15px;
+        text-align: center;
+        border-radius: 50%;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-right
+        .content-right__info
+        .position
+        .position-title
+        p,
+      .object
+        .object-info
+        .content
+        .content-right
+        .content-right__info
+        .address
+        .address-title
+        p {
+        color: #808191;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-right
+        .content-right__info
+        .position
+        .position-value,
+      .object
+        .object-info
+        .content
+        .content-right
+        .content-right__info
+        .address
+        .address-value {
+        font-size: 15px;
+        border-bottom: 3px solid #1f95ee;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-right
+        .content-right__info
+        .address {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .object
+        .object-info
+        .content
+        .content-right
+        .content-right__info
+        .address
+        .address-title {
+        display: flex;
+        align-items: center;
+      }
+
+      .object .object-info .content .content-right .content-right__schedule {
+        background-image: url("../img/BG-Training.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 20px;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      /* OCLOCK */
+      #oclock {
+        /* position: absolute; */
+        top: 10px;
+        left: 10px;
+        background: rgb(9, 218, 255);
+        border-radius: 10px;
+        width: 100px;
+        padding: 10px 0px;
+        font-weight: bold;
+        border: 2px solid firebrick;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+
+      #vitri {
+        /* position: absolute; */
+        top: 10px;
+        left: 10px;
+        background: rgb(9, 218, 255);
+        border-radius: 10px;
+        width: 300px;
+        padding: 10px 0px;
+        font-weight: bold;
+        border: 2px solid firebrick;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+
+      /* ANIMATION vehicle */
+      @keyframes weight {
+        0% {
+          transform: translateY(-25px);
+        }
+
+        100% {
+          transform: translateY(0px);
+        }
+      }
+      @-webkit-keyframes weight {
+        0% {
+          transform: translateY(-25px);
+        }
+
+        100% {
+          transform: translateY(0px);
+        }
+      }
+      /* ANIMATION vehicle */
+      @keyframes height {
+        0% {
+          transform: translateX(25px);
+        }
+
+        100% {
+          transform: translateX(-25px);
+        }
+      }
+      @-webkit-keyframes height {
+        0% {
+          transform: translateX(25px);
+        }
+
+        100% {
+          transform: translateX(-25px);
+        }
+      }
+      @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+      @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Roboto", sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-smoothing: antialiased;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 15px;
+        background: #eee;
+      }
+      .intro {
+        background: #fff;
+        padding: 60px 30px;
+        color: #333;
+        margin-bottom: 15px;
+        line-height: 1.5;
+        text-align: center;
+      }
+      .intro h1 {
+        font-size: 18pt;
+        padding-bottom: 15px;
+      }
+      .intro p {
+        font-size: 14px;
+      }
+
+      .action {
+        text-align: center;
+        display: block;
+        margin-top: 20px;
+      }
+
+      a.btn {
+        text-decoration: none;
+        color: #666;
+        border: 2px solid #666;
+        padding: 10px 15px;
+        display: inline-block;
+        margin-left: 5px;
+      }
+      a.btn:hover {
+        background: #666;
+        color: #fff;
+        transition: 0.3s;
+        -webkit-transition: 0.3s;
+      }
+      .btn:before {
+        font-family: FontAwesome;
+        font-weight: normal;
+        margin-right: 10px;
+      }
+      .github:before {
+        content: "\f09b";
+      }
+      .down:before {
+        content: "\f019";
+      }
+      .back:before {
+        content: "\f112";
+      }
+      .credit {
+        background: #fff;
+        padding: 12px;
+        font-size: 9pt;
+        text-align: center;
+        color: #333;
+        margin-top: 40px;
+      }
+      .credit span:before {
+        font-family: FontAwesome;
+        color: #e41b17;
+        content: "\f004";
+      }
+      .credit a {
+        color: #333;
+        text-decoration: none;
+      }
+      .credit a:hover {
+        color: #1dbf73;
+      }
+      .credit a:hover:after {
+        font-family: FontAwesome;
+        content: "\f08e";
+        font-size: 9pt;
+        position: absolute;
+        margin: 3px;
+      }
+
+      body {
+        position: relative;
+        overflow-x: hidden;
+        background-color: #eaedf1;
+      }
+      body,
+      html {
+        height: 100%;
+      }
+      .nav .open > a,
+      .nav .open > a:hover,
+      .nav .open > a:focus {
+        background-image: url("https://www.tripnow.vn/wp-content/uploads/2021/01/du-lich-da-nang-co-gi-1-750x536.jpg");
+      }
+
+      /*-------------------------------*/
+      /*           Wrappers            */
+      /*-------------------------------*/
+
+      #wrapper {
+        padding-left: 0;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+
+      #wrapper.toggled {
+        padding-left: 220px;
+      }
+
+      #sidebar-wrapper {
+        z-index: 1000;
+        left: 220px;
+        width: 0;
+        height: 100%;
+        margin-left: -220px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background: #1a1a1a;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+
+      #sidebar-wrapper::-webkit-scrollbar {
+        display: none;
+      }
+
+      #wrapper.toggled #sidebar-wrapper {
+        width: 220px;
+      }
+
+      #page-content-wrapper {
+        width: 100%;
+        padding-top: 70px;
+      }
+
+      #wrapper.toggled #page-content-wrapper {
+        position: absolute;
+        margin-right: -220px;
+      }
+
+      /*-------------------------------*/
+      /*     Sidebar nav styles        */
+      /*-------------------------------*/
+      .navbar {
+        padding: 0;
+      }
+
+      .sidebar-nav {
+        position: absolute;
+        top: 0;
+        width: 220px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .sidebar-nav li {
+        position: relative;
+        line-height: 20px;
+        display: inline-block;
+        width: 100%;
+      }
+
+      .sidebar-nav li:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        height: 100%;
+        width: 3px;
+        background-color: #1c1c1c;
+        -webkit-transition: width 0.2s ease-in;
+        -moz-transition: width 0.2s ease-in;
+        -ms-transition: width 0.2s ease-in;
+        transition: width 0.2s ease-in;
+      }
+      .sidebar-nav li:first-child a {
+        color: #fff;
+        background-color: #1a1a1a;
+      }
+      .sidebar-nav li:nth-child(5n + 1):before {
+        background-color: #ec1b5a;
+      }
+      .sidebar-nav li:nth-child(5n + 2):before {
+        background-color: #07a644;
+      }
+      .sidebar-nav li:nth-child(5n + 3):before {
+        background-color: #1632b1;
+      }
+      .sidebar-nav li:nth-child(5n + 4):before {
+        background-color: #fc002e;
+      }
+      .sidebar-nav li:nth-child(5n + 5):before {
+        background-color: #5d2379;
+      }
+
+      .sidebar-nav li:hover:before,
+      .sidebar-nav li.open:hover:before {
+        width: 100%;
+        -webkit-transition: width 0.2s ease-in;
+        -moz-transition: width 0.2s ease-in;
+        -ms-transition: width 0.2s ease-in;
+        transition: width 0.2s ease-in;
+      }
+
+      .sidebar-nav li a {
+        display: block;
+        color: #ddd;
+        text-decoration: none;
+        padding: 10px 15px 10px 30px;
+      }
+
+      .sidebar-nav li a:hover,
+      .sidebar-nav li a:active,
+      .sidebar-nav li a:focus,
+      .sidebar-nav li.open a:hover,
+      .sidebar-nav li.open a:active,
+      .sidebar-nav li.open a:focus {
+        color: #fff;
+        text-decoration: none;
+        background-color: transparent;
+      }
+      .sidebar-header {
+        text-align: center;
+        font-size: 20px;
+        position: relative;
+        width: 100%;
+        display: inline-block;
+      }
+      .sidebar-brand {
+        height: 65px;
+        position: relative;
+        background: #212531;
+        background: linear-gradient(to right bottom, #2f3441 50%, #212531 50%);
+        padding-top: 1em;
+      }
+      .sidebar-brand a {
+        color: #ddd;
+      }
+      .sidebar-brand a:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+      .dropdown-header {
+        text-align: center;
+        font-size: 1em;
+        color: #ddd;
+        background: #212531;
+        background: linear-gradient(to right bottom, #2f3441 50%, #212531 50%);
+      }
+      .sidebar-nav .dropdown-menu {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        border: none;
+        background-color: #222;
+        box-shadow: none;
+      }
+      .dropdown-menu.show {
+        top: 0;
+      }
+      /*Fontawesome icons*/
+      .nav.sidebar-nav li a::before {
+        font-family: fontawesome;
+        content: "\f12e";
+        vertical-align: baseline;
+        display: inline-block;
+        padding-right: 5px;
+      }
+      a[href*="#about"]::before {
+        content: "\f129" !important;
+      }
+      a[href*="#camera"]::before {
+        content: "\f0b1" !important;
+      }
+      a[href*="#camera1"]::before {
+        content: "\f03d" !important;
+      }
+      a[href*="#camera2"]::before {
+        content: "\f03d" !important;
+      }
+      a[href*="#books"]::before {
+        content: "\f02d" !important;
+      }
+      a[href*="#art"]::before {
+        content: "\f1fc" !important;
+      }
+      a[href*="#awards"]::before {
+        content: "\f02e" !important;
+      }
+      a[href*="#services"]::before {
+        content: "\f013" !important;
+      }
+      a[href*="#contact"]::before {
+        content: "\f086" !important;
+      }
+      /*-------------------------------*/
+      /*       Hamburger-Cross         */
+      /*-------------------------------*/
+
+      .hamburger {
+        position: fixed;
+        top: 20px;
+        z-index: 999;
+        display: block;
+        width: 32px;
+        height: 32px;
+        margin-left: 15px;
+        background: transparent;
+        border: none;
+      }
+      .hamburger:hover,
+      .hamburger:focus,
+      .hamburger:active {
+        outline: none;
+      }
+
+      .hamburger.is-closed:before {
+        content: "";
+        display: block;
+        width: 100px;
+        font-size: 14px;
+        color: #fff;
+        line-height: 32px;
+        text-align: center;
+        opacity: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        -webkit-transition: all 0.35s ease-in-out;
+      }
+      .hamburger.is-closed:hover:before {
+        opacity: 1;
+        display: block;
+        -webkit-transform: translate3d(-100px, 0, 0);
+        -webkit-transition: all 0.35s ease-in-out;
+      }
+
+      .hamburger.is-closed .hamb-top,
+      .hamburger.is-closed .hamb-middle,
+      .hamburger.is-closed .hamb-bottom,
+      .hamburger.is-open .hamb-top,
+      .hamburger.is-open .hamb-middle,
+      .hamburger.is-open .hamb-bottom {
+        position: absolute;
+        left: 0;
+        height: 4px;
+        width: 100%;
+      }
+      .hamburger.is-closed .hamb-top,
+      .hamburger.is-closed .hamb-middle,
+      .hamburger.is-closed .hamb-bottom {
+        background-color: #1a1a1a;
+      }
+      .hamburger.is-closed .hamb-top {
+        top: 5px;
+        -webkit-transition: all 0.35s ease-in-out;
+      }
+      .hamburger.is-closed .hamb-middle {
+        top: 50%;
+        margin-top: -2px;
+      }
+      .hamburger.is-closed .hamb-bottom {
+        bottom: 5px;
+        -webkit-transition: all 0.35s ease-in-out;
+      }
+
+      .hamburger.is-closed:hover .hamb-top {
+        top: 0;
+        -webkit-transition: all 0.35s ease-in-out;
+      }
+      .hamburger.is-closed:hover .hamb-bottom {
+        bottom: 0;
+        -webkit-transition: all 0.35s ease-in-out;
+      }
+      .hamburger.is-open .hamb-top,
+      .hamburger.is-open .hamb-middle,
+      .hamburger.is-open .hamb-bottom {
+        background-color: #1a1a1a;
+      }
+      .hamburger.is-open .hamb-top,
+      .hamburger.is-open .hamb-bottom {
+        top: 50%;
+        margin-top: -2px;
+      }
+      .hamburger.is-open .hamb-top {
+        -webkit-transform: rotate(45deg);
+        -webkit-transition: -webkit-transform 0.2s
+          cubic-bezier(0.73, 1, 0.28, 0.08);
+      }
+      .hamburger.is-open .hamb-middle {
+        display: none;
+      }
+      .hamburger.is-open .hamb-bottom {
+        -webkit-transform: rotate(-45deg);
+        -webkit-transition: -webkit-transform 0.2s
+          cubic-bezier(0.73, 1, 0.28, 0.08);
+      }
+      .hamburger.is-open:before {
+        content: "";
+        display: block;
+        width: 100px;
+        font-size: 14px;
+        color: #fff;
+        line-height: 32px;
+        text-align: center;
+        opacity: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        -webkit-transition: all 0.35s ease-in-out;
+      }
+      .hamburger.is-open:hover:before {
+        opacity: 1;
+        display: block;
+        -webkit-transform: translate3d(-100px, 0, 0);
+        -webkit-transition: all 0.35s ease-in-out;
+      }
+
+      /*-------------------------------*/
+      /*            Overlay            */
+      /*-------------------------------*/
+
+      .overlay {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(250, 250, 250, 0.8);
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+  <div id="preloader"></div>
+    <div id="wrapper">
+      <div class="overlay"></div>
+
+      <!-- Sidebar -->
+      <nav
+        class="navbar navbar-inverse fixed-top"
+        id="sidebar-wrapper"
+        role="navigation"
+      >
+        <ul class="nav sidebar-nav">
+          <div class="sidebar-header">
+            <div class="sidebar-brand">
+              <a href=""> Giám Sát Giao Thông</a>
+            </div>
+          </div>
+          <li><a href="/">Trang Chủ</a></li>
+          <li class="dropdown">
+            <a href="#camera" class="dropdown-toggle" data-toggle="dropdown">
+              Hệ Thống Camera <span class="caret"></span
+            ></a>
+            <ul class="dropdown-menu animated fadeInLeft" role="menu">
+              <div class="dropdown-header">Hệ Thống Giám Sát</div>
+              <li><a href="/Hethongcamera1">Vi Phạm Làn Đường</a></li>
+              <li><a href="/Hethongcamera1">Vi Phạm Mũ Bảo Hiểm </a></li>
+              <!-- <li><a href="#books">Books</a></li>
+            <li><a href="#awards">Awards</a></li> -->
+            </ul>
+          </li>
+          <li><a href="/bb">Luật Giao Thông</a></li>
+          <li><a href="/thongke">Thống Kê Xe Vi Phạm</a></li>
+        </ul>
+      </nav>
+      <div>
+        <button
+          type="button"
+          class="hamburger animated fadeInLeft is-closed"
+          data-toggle="offcanvas"
+        >
+          <span class="hamb-top"></span>
+          <span class="hamb-middle"></span>
+          <span class="hamb-bottom"></span>
+        </button>
+        <div class="container">
+          <div class="wrapper_main">
+            <div class="object">
+              <div class="object-info__wrapper" style="margin-left: -129px;">
+                <div class="object-info">
+                  <div class="header d-flex justify-content-center">
+                    <div class="title justify-content-center">
+                      <p style="color: red">
+                        Thống kê phương tiện vi phạm giao thông
+                      </p>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <div class="content-left">
+                      <div class="content-left__chart">
+                        <div class="radar-chart">
+                          <p class="text-success font-weight-bold">
+                            Ước Tính Phương Tiện Vi Phạm Làn Đường Năm 2023
+                          </p>
+                          <!--                                            <img src="https://soporte.cl/wp-content/uploads/2020/03/untangle-dashboard.png" style="width : 400px ; height :350px"  >-->
+                          <canvas id="myChart"></canvas>
+                          <p
+                            class="text-danger font-weight-bold justify-content-center d-flex"
+                          >
+                            Bảng 1 : Thống kê phương tiện vi phạm
+                          </p>
+                        </div>
+                        <div class="report-vehicle" style="margin-top: 100px">
+                          <p class="text-success font-weight-bold">
+                            Tình hình giao thông vi phạm trong ngày :
+                          </p>
+                          <div class="report-vehicle__content">
+                            <div class="report-vehicle__item car-icon">
+                              <img
+                                src="https://www.gifcen.com/wp-content/uploads/2021/05/car-gif-17.gif"
+                                alt="Xe ô tô"
+                              />
+                              <p
+                                class="font-weight-bold"
+                                style="color: #ed1c24"
+                                id="oto"
+                              ></p>
+                            </div>
+                            <div class="report-vehicle__item vehicle-motor">
+                              <img
+                                src="https://th.bing.com/th/id/R.d4cfcc1d079fde739f5e80cc86acc9ca?rik=0RtL4J2NaHTLjQ&pid=ImgRaw&r=0"
+                                alt="Xe máy"
+                              />
+                              <p
+                                class="font-weight-bold"
+                                style="color: #00a2e8"
+                                id="xemay"
+                              ></p>
+                            </div>
+                            <div class="report-vehicle__item vehicle-truck">
+                              <img
+                                src="https://i.gifer.com/6iC.gif"
+                                alt="Xe tải"
+                              />
+                              <p
+                                class="font-weight-bold"
+                                style="color: #ff7f27"
+                                id="xetai"
+                              ></p>
+                            </div>
+                            <div class="report-vehicle__item vehicle-motor">
+                              <img
+                                src="https://media1.giphy.com/media/l2Sq7EM6tK1MY5urC/giphy.gif"
+                                alt=""
+                              />
+                              <p
+                                class="font-weight-bold"
+                                style="color: #a349a4"
+                                id="xebus"
+                              ></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="content-right">
+                      <div class="content-right__info">
+                        <div class="position">
+                          <div class="d-flex">
+                            <i class="bi bi-clock-fill m-1 fa-2x"></i>
+                            <p class="p-3">Giờ Hiện tại</p>
+                          </div>
+                          <div class="position-value">
+                            <p id="oclock"></p>
+                          </div>
+                        </div>
+                        <div class="address">
+                          <div class="d-flex">
+                            <i class="bi bi-geo-alt-fill m-1 fa-2x"></i>
+                            <p class="p-3">Vị Trí Giám Sát</p>
+                          </div>
+                          <div class="address-value">
+                            <p id="vitri">Nguyễn Tri Phương , TP Đà Nẵng</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="content-right__schedule">
+                        <!-- <div id="oclock"></div> -->
+                        <div class="schedule-header">
+                          <img
+                            src="https://cdn.baogiaothong.vn/files/nhan.hua/2018/07/03/160327-cau-vuot-nguyen-tri-phuong-co-loi-di-bo-0-giua-1.jpg"
+                            alt=""
+                            style="
+                              width: 707px;
+                              height: 437px;
+                              border-radius: 20px;
+                            "
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hiển thị dữ liệu -->
+
+    <!--
+  <h3 class=" p-3 justify-content-center d-flex m-lg-1 badge bg-body-tertiary text-success text-wrap fs-2"> Camera 1 : Hệ Thống Giám Sát Xe Vi Phạm Làn</h3>
+   <div class="card-body d-flex justify-content-center" >
+                <div class="steam" id="video-frame">
+                  <h3 class="conn d-none" id="conn-alert">No Connected</h3>
+                  <img
+                    id="steam"
+                    src="http://127.0.0.1:8000/api/steam"
+                    loading="lazy"
+                    class="img-fluid"
+                    alt="..."
+                    width="960px"
+                  />
+                </div>
+              </div>
+ -->
+
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
+    <!--<script src="js/script.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+  <script>
+    $.ajax({
+      url: "http://127.0.0.1:8000/test1",
+      method: "GET",
+      success: function (response) {
+        var label = ["OTO", "Xe May", "Xe Tai", "Xe Bus"];
+        for (var j = 0; j < response.length; j++) {
+          var isFound = label.includes(response[j][0]);
+          if (isFound) {
+            var number = response[j][2];
+            let inputString = response[j][0].toString();
+            let processedString = inputString.replace(/\s/g, "").toLowerCase();
+            let datalog = document.getElementById(processedString);
+            if (datalog) {
+              datalog.innerHTML = number.toString() + " vi phạm";
+            }
+          }
+        }
+      },
+    });
+  </script>
+  <script>
+    $.ajax({
+      url: "http://127.0.0.1:8000/test",
+      method: "GET",
+      success: function (response) {
+        console.log("Yêu cầu thành công");
+        console.log(response[1][0]);
+        const ctx = document.getElementById("myChart");
+        new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: ["Ô Tô", "Xe Máy", "Xe Đạp", "Xe Tải", "Xe Bus"],
+            datasets: [
+              {
+                label: "Thống Kê Phương Tiện",
+                data: [
+                  response[0][2],
+                  response[1][2],
+                  response[2][2],
+                  response[3][2],
+                  response[4][2],
+                ],
+                backgroundColor: [
+                  "rgba(255,0,0,1)",
+                  "rgb(44, 211, 225,1)",
+                  "rgb(247, 147, 39,1)",
+                  "rgb(221, 88, 214,1)",
+                  "rgb(22, 0, 23,1)",
+                ],
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      },
+      error: function (xhr, status, error) {
+        console.log("Yêu cầu không thành công");
+        console.log("Lỗi: " + status);
+        console.log("Chi tiết lỗi: " + error);
+      },
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      var trigger = $(".hamburger"),
+        overlay = $(".overlay"),
+        isClosed = false;
+
+      trigger.click(function () {
+        hamburger_cross();
+      });
+
+      function hamburger_cross() {
+        if (isClosed == true) {
+          overlay.hide();
+          trigger.removeClass("is-open");
+          trigger.addClass("is-closed");
+          isClosed = false;
+        } else {
+          overlay.show();
+          trigger.removeClass("is-closed");
+          trigger.addClass("is-open");
+          isClosed = true;
+        }
+      }
+
+      $('[data-toggle="offcanvas"]').click(function () {
+        $("#wrapper").toggleClass("toggled");
+      });
+    });
+  </script>
+
+  <script>
+    function dongho() {
+      var time = new Date();
+      var hour = time.getHours();
+      var minutes = time.getMinutes();
+      var second = time.getSeconds();
+      if (hour < 10) {
+        hour = "0" + hour;
+      }
+      if (minutes < 10) {
+        minutes = "0" + minutes;
+      }
+      if (second < 10) {
+        second = "0" + second;
+      }
+      document.getElementById("oclock").innerHTML =
+        hour + ":" + minutes + ":" + second;
+      setTimeout("dongho()", 1000);
+    }
+
+    dongho();
+  </script>
+
+  <script>
+    function checkVideoAlive(videoUrl) {
+      var video = document.getElementById("steam");
+      var text = document.getElementById("conn-alert");
+      var video_frame = document.getElementById("video-frame");
+      video.onerror = function () {
+        console.log("Video is not alive.");
+        text.setAttribute("class", "conn");
+        video.setAttribute("class", "img-fluid d-none");
+      };
+
+      video.onplay = function () {
+        text.setAttribute("class", "conn d-none");
+        console.log("Connected.");
+      };
+    }
+
+    checkVideoAlive("http://127.0.0.1:8000/camera1");
+  </script>
+<script>
+    var loader = document.getElementById("preloader");
+    window.addEventListener("load", vanish);
+    function vanish() {
+      loader.classList.add("display");
+    }
+    setTimeout(function () {
+      $("#preloader").fadeToggle();
+    }, 1500);
+  </script>
+</html>
