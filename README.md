@@ -48,7 +48,7 @@ Vào được như hình dưới  là chúng ta đã cài đặt thành công
 - https://www.youtube.com/watch?v=tgG2BjygiAM
 ## 3.	Hướng dẫn thực hiện tạo bảng cở sở dữ liệu trong MySQL
 ### B1: Sau khi tải và đăng nhập vào MySQL (giao diện như mục 2.1 hình thứ 2).
-### B2: Vào thư mục code => thư mục WEB => Mở file “codeDatabase.txt” => Copy nội code => đưa vào MYSQL và chạy code bên MySQL. Trình tự thực hiện như hình bên dưới.
+### B2: Mở file “codeDatabase.txt” => Copy nội code => đưa vào MYSQL và chạy code bên MySQL. Trình tự thực hiện như hình bên dưới.
 <br><br>
 ![Hình ảnh](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh3.png)
 <br><br>
@@ -67,19 +67,25 @@ Vào được như hình dưới  là chúng ta đã cài đặt thành công
 ![Hình ảnh](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh6.png)
 <br><br>
 ## 5.	Hướng dẫn chạy Project với Pycharm
-### B1: Download thư mục CODE về máy tính. 
-### B2: Vào thư mục CODE => ProjectFinal => python_project.
+### B1: Download python_project về máy tính. 
+### B2: Vào thư mục python_project.
 ### B3: Tiến hành mở “python_project” với Pycharm như hình bên dưới.
+![Hình ảnh](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh7.png)
  
 ### B4: Sau khi mở dự án với Pycharm tiến hành cài đặt các thư viện như hình bên dưới.
+![Hình ảnh](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh8.png)
  
--	Nếu một số File bị lỗi thư viện thì tiến hành cài đặt thư viện đó bằng 2 cách như bên dưới:
+- Nếu một số File bị lỗi thư viện thì tiến hành cài đặt thư viện đó bằng 2 cách như bên dưới:
 #### Cách 1: Sử dụng terminal: 
-- Cách thực hiện: Mở lệnh terminal và gõ lệnh : Pip install [tên thư viên bị lỗi] 
+- Cách thực hiện: Mở lệnh terminal và gõ lệnh : 
+`Pip install [tên thư viên bị lỗi]` 
 #### Cách 2: Cài đặt thư viện thông qua phần mềm Pycharm như hình dưới.
+![Hình ảnh](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh9.png)
 
 ### B5:  Sau khi cài đặt tất cả các thư viện thành công, vào file app_server và chạy chương trình
+![Hình ảnh](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh10.png)
  
 -	Kết quả cuối cùng:
- 
+![Hình ảnh](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh11.png)
+![Hình ảnh](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh12.png)
  
