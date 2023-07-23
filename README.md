@@ -23,11 +23,13 @@ This project was generated with [YOLO](https://github.com/autogyro/yolo-V8) vers
 ### 2.1.	Hướng dẫn cài đặt và sử dụng cơ sở dữ liệu MySQL Server và MySQL Workbench 8.0.2.0
 ## B1: Download phần mềm tại đường dẫn.
 - https://dev.mysql.com/downloads/installer/ 
-	## Link hướng dẫn cài đặt Mysql: 
-- Cài đặt MySQL Server & MySQL Workbench 
-#### Lưu ý : Sau khi cài đặt thành công, lúc tạo tài khoản và mật khẩu để đăng nhập cần phải ghi nhớ để đăng nhập vào database và giúp cho python kết nối được với database rất cần thiết cho việc chạy project.
-#### Sau khi tải xong, chúng ta vào bấm 2 lần vào khu vực như hình bên dưới và đăng nhập với tài khoản và mật khẩu lúc cài đặt MySQL.  
+	### Link hướng dẫn cài đặt Mysql: 
+- https://www.youtube.com/watch?v=BYwb50Xbf8s 
+####           Lưu ý : Sau khi cài đặt thành công, lúc tạo tài khoản và mật khẩu để đăng nhập cần phải ghi nhớ để đăng nhập vào database và giúp cho python kết nối được với database rất cần thiết cho việc chạy project.
+#### Sau khi tải xong, chúng ta vào bấm 2 lần vào khu vực như hình bên dưới và đăng nhập với tài khoản và mật khẩu lúc cài đặt MySQL. 
+![Hình ảnh](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh1.png)
 Vào được như hình dưới  là chúng ta đã cài đặt thành công 
+![Hình ảnh](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh2.png)
  
 ## 2.2.	Hướng dẫn cài đặt phần mềm Pycharm và Python
 ### 2.2.1.	 Tải và cài đặt phần mềm Pycharm
