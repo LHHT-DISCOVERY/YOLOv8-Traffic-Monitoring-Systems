@@ -17,7 +17,7 @@ This project was generated with [YOLO](https://github.com/autogyro/yolo-V8) vers
   <img src="https://ultralytics.com/static/backgrounds/vision.svg" width="400" />
   <img src="https://ultralytics.com/static/yolov8/community.svg" width="400" /> 
 </p><br><br>
-#HƯỚNG DẪN SỬ DỤNG CODE
+# HƯỚNG DẪN SỬ DỤNG CODE
 
 ## 2.	Cài đặt các phần mềm liên quan 
 ### 2.1.	Hướng dẫn cài đặt và sử dụng cơ sở dữ liệu MySQL Server và MySQL Workbench 8.0.2.0
