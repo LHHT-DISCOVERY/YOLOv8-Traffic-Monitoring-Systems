@@ -17,3 +17,52 @@ This project was generated with [YOLO](https://github.com/autogyro/yolo-V8) vers
   <img src="https://ultralytics.com/static/backgrounds/vision.svg" width="400" />
   <img src="https://ultralytics.com/static/yolov8/community.svg" width="400" /> 
 </p><br><br>
+	HƯỚNG DẪN SỬ DỤNG CODE
+
+2.	Cài đặt các phần mềm liên quan 
+2.1.	Hướng dẫn cài đặt và sử dụng cơ sở dữ liệu MySQL Server và MySQL Workbench 8.0.2.0
+B1: Download phần mềm tại đường dẫn.
+Link download : https://dev.mysql.com/downloads/installer/ 
+	Linh hướng dẫn cài đặt Mysql: Cài đặt MySQL Server & MySQL Workbench 
+-	     Lưu ý : Sau khi cài đặt thành công, lúc tạo tài khoản và mật khẩu để đăng nhập cần phải ghi nhớ để đăng nhập vào database và giúp cho python kết nối được với database rất cần thiết cho việc chạy project.
+-	Sau khi tải xong, chúng ta vào bấm 2 lần vào khu vực như hình bên dưới và đăng nhập với tài khoản và mật khẩu lúc cài đặt MySQL.  
+Vào được như hình dưới  là chúng ta đã cài đặt thành công 
+ 
+2.2.	Hướng dẫn cài đặt phần mềm Pycharm và Python
+2.2.1.	 Tải và cài đặt phần mềm Pycharm
+Link download: Download PyCharm: Python IDE for Professional Developers by JetBrains
+Link youtube hướng dẫn: (670) Hướng dẫn cài đặt và sử dụng Pycharm để lập trình Python trên máy tính - YouTube
+2.2.2.	Tải và cài đặt Python 
+-	Lưu ý : Chúng ta nên cài đặt Python version 3.9.13 đối với windown 10 hoặc có thể cài đặt Python version: 3.10 phiên bản mới nhất đối với windown 11 thì mới có thể chạy được project với YOLOv8.
+Link download python 3.9.13: Python Release Python 3.9.13 | Python.org
+Link youtube hướng dẫn: (670) Hướng dẫn Cài đặt Python 3.9 [Windows]
+3.	Hướng dẫn thực hiện tạo bảng cở sở dữ liệu trong MySQL
+B1: Sau khi tải và đăng nhập vào MySQL (giao diện như mục 2.1 hình thứ 2).
+B2: Vào thư mục code => thư mục WEB => Mở file “codeDatabase.txt” => Copy nội code => đưa vào MYSQL và chạy code bên MySQL. Trình tự thực hiện như hình bên dưới.
+ 
+-	Nếu hiển thị như bước thứ 5 trong hình ảnh trên là quá trình khởi tạo databse thành công.
+4.	Hướng dẫn train model với YOLOv8 trên GOOGLE COLAB
+B1: Tạo thư mục trên Driver sau đó Upload thư mục DATA lên google Driver, trình tự thực hiện như hình bên dưới.
+ 
+
+B2: Sau khi tạo file trên Google Colab , tiến hành liên kết với driver và cài đặt YOLOv8 trên google Colab
+ 
+B3: Chạy lệnh huấn luyện với thư mục DATA vừa upload lên google Driver ở B1
+ 
+5.	Hướng dẫn chạy Project với Pycharm
+B1: Download thư mục CODE về máy tính. 
+B2: Vào thư mục CODE => ProjectFinal => python_project.
+B3: Tiến hành mở “python_project” với Pycharm như hình bên dưới.
+ 
+B4: Sau khi mở dự án với Pycharm tiến hành cài đặt các thư viện như hình bên dưới.
+ 
+-	Nếu một số File bị lỗi thư viện thì tiến hành cài đặt thư viện đó bằng 2 cách như bên dưới:
+Cách 1: Sử dụng terminal: 
+Cách thực hiện: Mở lệnh terminal và gõ lệnh : Pip install [tên thư viên bị lỗi] 
+Cách 2: Cài đặt thư viện thông qua phần mềm Pycharm như hình dưới.
+ 
+B5:  Sau khi cài đặt tất cả các thư viện thành công, vào file app_server và chạy chương trình
+ 
+-	Kết quả cuối cùng:
+ 
+ 
