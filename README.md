@@ -89,4 +89,14 @@ Vào được như hình dưới  là chúng ta đã cài đặt thành công
 ![Hình ảnh](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh11.png)
 **Xem video demo tại đây:**
    [![Video Demo](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh11.png)](https://www.youtube.com/watch?v=Z-aQCrljl3A)
+
+# Liên hệ
+
+## Nếu bạn có bất kỳ câu hỏi, đề xuất hoặc báo cáo vấn đề, xin vui lòng liên hệ với chúng tôi:
+
+```plaintext
+- Tên: LÝ HUỲNH HỮU TRÍ
+- Email: lytri102@gmail.com
+- FACEBOOk: https://www.facebook.com/lyshuynhshuustris.tris
+- GitHub: https://github.com/LHHT-DISCOVERY
  
