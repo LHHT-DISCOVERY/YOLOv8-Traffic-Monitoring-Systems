@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Document</title>
+    <style>
+        #preloader {
+        background: #e5eff1 url('https://th.bing.com/th/id/R.5be365b4576b73da8de3e8e7cf5ba94d?rik=VllzSYmE6UTNRg&pid=ImgRaw&r=0') no-repeat center center;
+        background-size: 15%;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+      }
+      .display {
+        animation: opacity 5s forwards;
+      }
+      @keyframes opacity {
+        100% {
+          display: none;
+        }
+      }
+      body {
+        background-color: #eaedf1;
+      }
+      a {
+        color: #1a4613;
+      }
+      a:hover {
+        text-shadow: 10px;
+        color: rgb(35, 255, 68);
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="preloader"></div>
+    <div
+      class="card-body d-flex justify-content-center"
+      style="background-color: white"
+    >
+      <div>
+        <img
+          src="https://th.bing.com/th/id/R.e80b1669d9244a2d5dbf9f2129ffb8d6?rik=LlMWR%2finvBR3qg&riu=http%3a%2f%2fdut.udn.vn%2fFiles%2fadmin%2fimages%2fTin_tuc%2fKhac%2f2020%2fLogoDUT%2fimage002.jpg&ehk=nXRyggUJAHitxrCTe%2fkMLEJbSGgxJqnvFldNv0khy3I%3d&risl=&pid=ImgRaw&r=0"
+          alt="ĐẠI HỌC BÁCH KHOA ĐÀ NẴNG"
+          style="width: 100px; height: 100px"
+        />
+        <h1
+          class="p-3 m-lg-1 badge bg-body-tertiary text-success text-wrap fs-2"
+        >
+          HỆ THỐNG GIÁM SÁT GIAO THÔNG
+        </h1>
+        <h3
+          class="m-5 p-5 m-lg-1 text-center badge bg-body-tertiary text-success text-wrap fs-2"
+        >
+          Camera Giám Sát Xe Vi Phạm Làn Đường
+        </h3>
+        <br />
+        <h4 class="m-5">
+          <a class="text-decoration-none" href="/Hethongcamera2">
+            1. Camera Giám Sát Phương Tiện Vi Phạm Mũ Bảo Hiểm
+          </a>
+        </h4>
+        <h4 class="m-5">
+          <a class="text-decoration-none" href="/thongke">
+            2. Thống Kê Phương Tiện Vi Phạm</a
+          >
+
+        </h4>
+        <h4 class="m-5">
+          <a class="text-decoration-none" href="/bb">
+            3 . Một Số Quy Định Giao Thông</a
+          >
+        </h4>
+        <h4 class="m-5">
+          <a class="text-decoration-none" href="/"> 4 . Quay Lại Trang Chủ</a>
+        </h4>
+      </div>
+      <div class="steam" id="video-frame">
+        <h3 class="conn d-none" id="conn-alert">No Connected</h3>
+        <img
+          id="steam"
+          src="http://127.0.0.1:8000/camera1"
+          loading="lazy"
+          class="img-fluid"
+          alt="..."
+          style="width: 850px; height: 800px"
+        />
+      </div>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
+  <script>
+    function checkVideoAlive(videoUrl) {
+      let video = document.getElementById("steam");
+      let text = document.getElementById("conn-alert");
+      let video_frame = document.getElementById("video-frame");
+      video.onerror = function () {
+        console.log("Video is not alive.");
+        text.setAttribute("class", "conn");
+        video.setAttribute("class", "img-fluid d-none");
+      };
+
+      video.onplay = function () {
+        text.setAttribute("class", "conn d-none");
+        console.log("Connected.");
+      };
+    }
+    checkVideoAlive("http://127.0.0.1:8000/camera1");
+  </script>
+  <script>
+    var loader = document.getElementById("preloader");
+    window.addEventListener("load", vanish);
+    function vanish() {
+      loader.classList.add("display");
+    }
+    setTimeout(function () {
+      $("#preloader").fadeToggle();
+    }, 1500);
+  </script>
+</html>

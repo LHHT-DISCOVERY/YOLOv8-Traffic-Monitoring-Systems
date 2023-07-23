@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Bootstrap Sidebar Menu with Submenu Example</title>
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    />
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css"
+    />
+    <style>
+     #preloader {
+        background: #e5eff1 url('https://th.bing.com/th/id/R.5be365b4576b73da8de3e8e7cf5ba94d?rik=VllzSYmE6UTNRg&pid=ImgRaw&r=0') no-repeat center center;
+        background-size: 15%;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+      }
+      .display {
+        animation: opacity 5s forwards;
+      }
+      @keyframes opacity {
+        100% {
+          display: none;
+        }
+      }
+         body {
+        margin: 0;
+      }
+
+      .wrapper_main {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .wrapper_main .player {
+        display: flex;
+      }
+      .player .player-info__wrapper {
+        display: flex;
+        flex: 1;
+        background-color::#eaedf1 ;
+      }
+
+      .player .player-info {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 30px 40px;
+        margin-left: 70px;
+      }
+
+      .player-info .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .player-info .header .title {
+        display: flex;
+        gap: 0 20px;
+        align-items: center;
+        text-transform: uppercase;
+      }
+
+      .player-info .header .title p {
+        margin: 0;
+      }
+
+      .player-info .header .title .title-image {
+        height: 50px;
+        width: 50px;
+      }
+
+      .player-info .header .title .title-image img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .player-info .header .title p {
+        font-size: 35px;
+        font-weight: bold;
+      }
+
+      .player-info .header .coach {
+        display: flex;
+        align-items: center;
+        gap: 0 20px;
+        padding: 5px 20px;
+        border: 1px solid transparent;
+        border-radius: 20px;
+      }
+
+      .player-info .header .coach:hover {
+        background: white;
+        border: 1px solid lavender;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: 0.2s linear;
+      }
+
+      .player-info .header .coach .coach-image {
+        width: 45px;
+        height: 45px;
+      }
+
+      .player-info .header .coach .coach-image img {
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        width: 100%;
+      }
+
+      .player-info .header .coach p {
+        font-weight: bold;
+      }
+
+      .player .player-info .content {
+        display: flex;
+        gap: 0 20px;
+      }
+
+      .player .player-info .content .content-left {
+        background-color: white;
+        padding: 3px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 450px;
+        border-radius: 20px;
+      }
+
+      .player .player-info .content .content-left .content-left__info {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__info
+        .infomation {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__info
+        .infomation
+        .name {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__info
+        .infomation
+        .class,
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__info
+        .infomation
+        .age {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__info
+        .infomation
+        p {
+        margin: 0;
+      }
+
+      .player .player-info .content .content-left .content-left__info .avatar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__info
+        .avatar
+        .avatar-image {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__info
+        .avatar
+        .avatar-image:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        padding: 5px;
+        margin: -7px;
+        border: 2px solid red;
+        border-radius: 50%;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__info
+        .avatar
+        .avatar-image:hover {
+        transform: scale(1.15);
+        transition: all 0.2s linear;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__info
+        .avatar
+        .avatar-image:hover::before {
+        -webkit-animation: spin 2s linear infinite;
+        border-top: 2px solid #f3f3f3;
+        /* Safari */
+        animation: spin 2s linear infinite;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__info
+        .avatar
+        .avatar-image
+        img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__info
+        .avatar
+        .btn-edit {
+        padding: 5px 35px;
+        background: #ff5d6d;
+        color: white;
+        border-radius: 20px;
+        cursor: pointer;
+        border: 1px solid transparent;
+        text-transform: uppercase;
+      }
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__info
+        .avatar
+        .btn-edit
+        a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__info
+        .avatar
+        .btn-edit:hover {
+        background: white;
+        border: 1px solid #ff5d6d;
+        color: #ff5d6d;
+        transition: 0.2s linear;
+      }
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__info
+        .avatar
+        .btn-edit:hover
+        a {
+        color: #ff5d6d;
+        transition: 0.2s linear;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .line-chart {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .line-chart
+        p {
+        font-weight: bold;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .radar-chart {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .radar-chart
+        p {
+        font-weight: bold;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-health {
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+        padding: 10px 20px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 15px;
+        cursor: pointer;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-health:hover
+        .health-icon
+        img {
+        animation-name: health;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-health:hover
+        .health-weight
+        img {
+        animation-name: weight;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-health:hover
+        .health-height
+        img {
+        animation-name: height;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+      }
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-health
+        .health-bmi
+        .bmi-nohover {
+        display: block;
+      }
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-health
+        .health-bmi
+        .bmi-hover {
+        display: none;
+      }
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-health:hover
+        .health-bmi
+        .bmi-nohover {
+        display: none;
+        transition: all 0.2s linear;
+      }
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-health:hover
+        .health-bmi
+        .bmi-hover {
+        display: block;
+        transition: all 0.2s linear;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-health:hover {
+        transition: all 0.2s linear;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+          rgba(17, 17, 26, 0.1) 0px 16px 56px,
+          rgba(17, 17, 26, 0.1) 0px 24px 80px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-health
+        p {
+        font-weight: bolder;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-health
+        .report-health__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-health
+        .report-health__content
+        .report-health__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-left
+        .content-left__chart
+        .report-health
+        .report-health__content
+        .report-health__item
+        img {
+        height: 50px;
+        width: 50px;
+        object-fit: cover;
+      }
+
+      .player .player-info .content .content-right {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 20px;
+      }
+
+      .player .player-info .content .content-right .content-right__info {
+        display: flex;
+        gap: 0 20px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .position,
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .completion {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        width: 350px;
+        padding: 10px 15px;
+        background: white;
+        border-radius: 20px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .position
+        .position-title,
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .completion
+        .completion-title {
+        display: flex;
+        align-items: center;
+        gap: 0 10px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .position
+        .position-title
+        i,
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .completion
+        .completion-title
+        i {
+        padding: 5px;
+        background: #ff5d6d;
+        color: white;
+        height: 15px;
+        width: 15px;
+        text-align: center;
+        border-radius: 50%;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .position
+        .position-title
+        p,
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .completion
+        .completion-title
+        p {
+        color: #808191;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .position
+        .position-value,
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .completion
+        .completion-value {
+        font-size: 15px;
+        border-bottom: 3px solid #1f95ee;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .completion {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .completion
+        .completion-title {
+        display: flex;
+        align-items: center;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .completion
+        .completion-value
+        p {
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .coach-trainer {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 30px 35px;
+        background: white;
+        border-radius: 20px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .coach-trainer
+        .coach-trainer__title {
+        display: flex;
+        align-items: center;
+        gap: 0 20px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .coach-trainer
+        .coach-trainer__title
+        i {
+        background: #4467e0;
+        color: white;
+        text-align: center;
+        margin: 0;
+        padding: 5px;
+        font-size: 20px;
+        border-radius: 10px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .coach-trainer
+        .coach-trainer__title
+        .coach-trainer__parameter
+        p {
+        margin: 0;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .coach-trainer
+        .coach-trainer__title
+        .coach-trainer__parameter
+        .coach-trainer__number {
+        font-size: 14px;
+        color: #8f92a1;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .coach-trainer
+        .coach-trainer__title
+        .coach-trainer__parameter
+        .coach-trainer__name {
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .coach-trainer
+        .coach-trainer__value {
+        padding: 15px;
+        display: flex;
+        gap: 0 10px;
+        margin: 40px auto;
+        overflow-x: auto;
+        overflow-y: hidden;
+        width: 250px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .coach-trainer
+        .coach-trainer__value
+        .coach-trainer__item {
+        height: 35px;
+        width: 35px;
+      }
+
+      /* SCROLL BAR CUSTOM */
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .coach-trainer
+        .coach-trainer__value::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .coach-trainer
+        .coach-trainer__value::-webkit-scrollbar-track {
+        background: #e6e6e6;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .coach-trainer
+        .coach-trainer__value::-webkit-scrollbar-thumb {
+        background: #6186aa;
+        border-radius: 5px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .coach-trainer
+        .coach-trainer__value::-webkit-scrollbar-thumb:hover {
+        background: #4075cb;
+      }
+
+      /* - END SCROLL BAR CUSTOM */
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .coach-trainer
+        .coach-trainer__value
+        img {
+        width: 35px;
+        height: 35px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #967a43;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__info
+        .coach-trainer
+        .coach-trainer__value
+        img:hover {
+        transform: scale(1.4);
+        transition: all 0.2s linear;
+        cursor: pointer;
+      }
+
+      .player .player-info .content .content-right .content-right__schedule {
+        background-image: url("../img/BG-Training.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 20px;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      /* OCLOCK */
+      #oclock {
+        /* position: absolute; */
+        top: 10px;
+        left: 10px;
+        background: rgb(9, 218, 255);
+        border-radius: 10px;
+        width: 100px;
+        padding: 10px 0px;
+        font-weight: bold;
+        border: 2px solid firebrick;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+
+      #vitri {
+        /* position: absolute; */
+        top: 10px;
+        left: 10px;
+        background: rgb(9, 218, 255);
+        border-radius: 10px;
+        width: 300px;
+        padding: 10px 0px;
+        font-weight: bold;
+        border: 2px solid firebrick;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+
+      /* END OCLOCK */
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__schedule
+        .schedule-wrapper_main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__schedule
+        .schedule-wrapper_main
+        .schedule-carousel__wrapper_main
+        .schedule-carousel
+        .carousel-item {
+        display: flex;
+        background: white;
+        padding: 20px;
+        align-items: center;
+        /* width: 550px; */
+        justify-content: space-between;
+        border-radius: 20px;
+        margin: 20px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__schedule
+        .schedule-wrapper_main
+        .schedule-carousel__wrapper_main
+        .schedule-carousel
+        .carousel-item
+        .carousel-title
+        p {
+        margin: 0;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__schedule
+        .schedule-wrapper_main
+        .schedule-carousel__wrapper_main
+        .schedule-carousel
+        .carousel-item
+        .carousel-title {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 250px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__schedule
+        .schedule-wrapper_main
+        .schedule-carousel__wrapper_main
+        .schedule-carousel
+        .carousel-item
+        .carousel-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__schedule
+        .schedule-wrapper_main
+        .schedule-header {
+        font-size: 40px;
+        font-weight: bolder;
+        color: #f53838;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+        color: white;
+        font-family: system-ui;
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+        gap: 0 20px;
+      }
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__schedule
+        .schedule-wrapper_main
+        .schedule-carousel__complete {
+        color: white;
+        background: yellowgreen;
+        padding: 30px;
+        font-size: 17px;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+      }
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__schedule
+        .schedule-wrapper_main
+        .schedule-carousel__complete
+        img {
+        height: 50px;
+        width: 50px;
+        object-fit: cover;
+      }
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__schedule
+        .schedule-wrapper_main.schedule-carousel__complete
+        p {
+        margin: 0;
+      }
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__schedule
+        .schedule-wrapper_main
+        .schedule-header
+        p {
+        margin: 0;
+      }
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__schedule
+        .schedule-wrapper_main
+        .schedule-carousel__wrapper_main
+        .schedule-carousel
+        .schedule-carousel-no {
+        text-align: center;
+        padding: 30px;
+        background: white;
+        border-radius: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__schedule
+        .schedule-wrapper_main
+        .schedule-carousel__wrapper_main
+        .schedule-carousel
+        .carousel-item
+        .carousel-title
+        .schedule-name {
+        font-weight: bold;
+        font-size: 18px;
+        text-align: center;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__schedule
+        .schedule-wrapper_main
+        .schedule-carousel__wrapper_main
+        .schedule-carousel
+        .carousel-item
+        .carousel-title
+        .schedule-teacher {
+        font-size: 14px;
+        color: #8f92a1;
+        background: antiquewhite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        border-radius: 20px;
+        font-weight: bold;
+        gap: 0 5px;
+        border: 1px solid bisque;
+      }
+
+      .player
+        .player-info
+        .content
+        .content-right
+        .content-right__schedule
+        .schedule-wrapper_main
+        .schedule-carousel__wrapper_main
+        .schedule-carousel
+        .carousel-item
+        .carousel-image
+        img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      /* SLICK SLIDER */
+      .slick-slider {
+        width: 600px;
+      }
+
+      .slick-track {
+        display: flex;
+        display: flex;
+        padding-bottom: 10px;
+      }
+
+      .slick-dots {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 0 15px;
+        transition: all linear 0.2s;
+        /* transform: translateY(-300%); */
+        justify-content: center;
+        transform: translateX(-15px) translateY(-100%);
+      }
+
+      .slick-dots button {
+        font-size: 0;
+        width: 15px;
+        height: 15px;
+        border-radius: 100rem;
+        background-color: #dde0e4;
+        border: none;
+        outline: none;
+        transition: all 0.2s linear;
+      }
+
+      .slick-dots .slick-active button {
+        width: 45px;
+        background-color: #f53838;
+      }
+
+      .slick-arrow {
+        width: 60px;
+        height: 60px;
+        border-radius: 100rem;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 10px;
+        z-index: 1;
+        transform: translateY(50%);
+      }
+
+      .slick-arrow:hover {
+        background: white;
+        transition: 0.2s linear;
+      }
+
+      .slick-prev {
+        border: 1px solid brown;
+        background-color: #f53838;
+        left: -55px;
+        cursor: pointer;
+      }
+
+      .slick-prev:hover i {
+        color: #f53838 !important;
+        transition: 0.2s linear;
+      }
+
+      .slick-next {
+        border: 1px solid brown;
+        background-color: #f53838;
+        right: -55px;
+        cursor: pointer;
+      }
+
+      .slick-next:hover i {
+        color: #f53838 !important;
+        transition: 0.2s linear;
+      }
+
+      /* ANIMATION AVATAR */
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* END ANIMATION AVATAR */
+      /* ANIMATION health */
+      @keyframes health {
+        0% {
+          transform: scale(0.5);
+        }
+
+        50% {
+          transform: scale(1.5);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+      @-webkit-keyframes health {
+        0% {
+          transform: scale(0.5);
+        }
+
+        50% {
+          transform: scale(1.5);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+      /* ANIMATION health */
+      /* ANIMATION weight */
+      @keyframes weight {
+        0% {
+          transform: translateY(-25px);
+        }
+
+        100% {
+          transform: translateY(0px);
+        }
+      }
+      @-webkit-keyframes weight {
+        0% {
+          transform: translateY(-25px);
+        }
+
+        100% {
+          transform: translateY(0px);
+        }
+      }
+      /* ANIMATION weight */
+      /* ANIMATION height */
+      @keyframes height {
+        0% {
+          transform: translateX(25px);
+        }
+
+        100% {
+          transform: translateX(-25px);
+        }
+      }
+      @-webkit-keyframes height {
+        0% {
+          transform: translateX(25px);
+        }
+
+        100% {
+          transform: translateX(-25px);
+        }
+      }
+            @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+      @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+      *{ margin: 0; padding: 0;}
+      body{
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-smoothing: antialiased;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+        font-size: 15px;
+        background: #eee;
+      }
+      .intro{
+         background: #fff;
+         padding: 60px 30px;
+         color: #333;
+         margin-bottom: 15px;
+         line-height: 1.5;
+         text-align: center;
+      }
+      .intro h1 {
+         font-size: 18pt;
+         padding-bottom: 15px;
+
+      }
+      .intro p{
+         font-size: 14px;
+      }
+
+      .action{
+         text-align: center;
+         display: block;
+         margin-top: 20px;
+      }
+
+      a.btn {
+        text-decoration: none;
+        color: #666;
+         border: 2px solid #666;
+         padding: 10px 15px;
+         display: inline-block;
+         margin-left: 5px;
+      }
+      a.btn:hover{
+         background: #666;
+         color: #fff;
+          transition: .3s;
+      -webkit-transition: .3s;
+      }
+      .btn:before{
+        font-family: FontAwesome;
+        font-weight: normal;
+        margin-right: 10px;
+      }
+      .github:before{content: "\f09b"}
+      .down:before{content: "\f019"}
+      .back:before{content:"\f112"}
+      .credit{
+          background: #fff;
+          padding: 12px;
+          font-size: 9pt;
+          text-align: center;
+          color: #333;
+          margin-top: 40px;
+
+      }
+      .credit span:before{
+         font-family: FontAwesome;
+         color: #e41b17;
+         content: "\f004";
+
+
+      }
+      .credit a{
+         color: #333;
+         text-decoration: none;
+      }
+      .credit a:hover{
+         color: #1DBF73;
+      }
+      .credit a:hover:after{
+          font-family: FontAwesome;
+          content: "\f08e";
+          font-size: 9pt;
+          position: absolute;
+          margin: 3px;
+      }
+
+      body {
+          position: relative;
+          overflow-x: hidden;
+          background-color: #eaedf1;
+      }
+      body,
+      html { height: 100%;}
+      .nav .open > a,
+      .nav .open > a:hover,
+      .nav .open > a:focus {background-image: url('https://www.tripnow.vn/wp-content/uploads/2021/01/du-lich-da-nang-co-gi-1-750x536.jpg');}
+
+      /*-------------------------------*/
+      /*           Wrappers            */
+      /*-------------------------------*/
+
+      #wrapper {
+          padding-left: 0;
+          -webkit-transition: all 0.5s ease;
+          -moz-transition: all 0.5s ease;
+          -o-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+      }
+
+      #wrapper.toggled {
+          padding-left: 220px;
+      }
+
+      #sidebar-wrapper {
+          z-index: 1000;
+          left: 220px;
+          width: 0;
+          height: 100%;
+          margin-left: -220px;
+          overflow-y: auto;
+          overflow-x: hidden;
+          background: #1a1a1a;
+          -webkit-transition: all 0.5s ease;
+          -moz-transition: all 0.5s ease;
+          -o-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+      }
+
+      #sidebar-wrapper::-webkit-scrollbar {
+        display: none;
+      }
+
+      #wrapper.toggled #sidebar-wrapper {
+          width: 220px;
+      }
+
+      #page-content-wrapper {
+          width: 100%;
+          padding-top: 70px;
+      }
+
+      #wrapper.toggled #page-content-wrapper {
+          position: absolute;
+          margin-right: -220px;
+      }
+
+      /*-------------------------------*/
+      /*     Sidebar nav styles        */
+      /*-------------------------------*/
+      .navbar {
+        padding: 0;
+      }
+
+      .sidebar-nav {
+          position: absolute;
+          top: 0;
+          width: 220px;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+      }
+
+      .sidebar-nav li {
+          position: relative;
+          line-height: 20px;
+          display: inline-block;
+          width: 100%;
+      }
+
+      .sidebar-nav li:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          height: 100%;
+          width: 3px;
+          background-color: #1c1c1c;
+          -webkit-transition: width .2s ease-in;
+            -moz-transition:  width .2s ease-in;
+             -ms-transition:  width .2s ease-in;
+                  transition: width .2s ease-in;
+
+      }
+      .sidebar-nav li:first-child a {
+          color: #fff;
+          background-color: #1a1a1a;
+      }
+      .sidebar-nav li:nth-child(5n+1):before {
+          background-color: #ec1b5a;
+      }
+      .sidebar-nav li:nth-child(5n+2):before {
+          background-color: #07a644;
+      }
+      .sidebar-nav li:nth-child(5n+3):before {
+          background-color: #1632b1;
+      }
+      .sidebar-nav li:nth-child(5n+4):before {
+          background-color: #fc002e;
+      }
+      .sidebar-nav li:nth-child(5n+5):before {
+          background-color: #5d2379;
+      }
+
+      .sidebar-nav li:hover:before,
+      .sidebar-nav li.open:hover:before {
+          width: 100%;
+          -webkit-transition: width .2s ease-in;
+            -moz-transition:  width .2s ease-in;
+             -ms-transition:  width .2s ease-in;
+                  transition: width .2s ease-in;
+
+      }
+
+      .sidebar-nav li a {
+          display: block;
+          color: #ddd;
+          text-decoration: none;
+          padding: 10px 15px 10px 30px;
+      }
+
+      .sidebar-nav li a:hover,
+      .sidebar-nav li a:active,
+      .sidebar-nav li a:focus,
+      .sidebar-nav li.open a:hover,
+      .sidebar-nav li.open a:active,
+      .sidebar-nav li.open a:focus{
+          color: #fff;
+          text-decoration: none;
+          background-color: transparent;
+      }
+      .sidebar-header {
+          text-align: center;
+          font-size: 20px;
+          position: relative;
+          width: 100%;
+          display: inline-block;
+      }
+      .sidebar-brand {
+          height: 65px;
+          position: relative;
+          background:#212531;
+          background: linear-gradient(to right bottom, #2f3441 50%, #212531 50%);
+         padding-top: 1em;
+      }
+      .sidebar-brand a {
+          color: #ddd;
+      }
+      .sidebar-brand a:hover {
+          color: #fff;
+          text-decoration: none;
+      }
+      .dropdown-header {
+          text-align: center;
+          font-size: 1em;
+          color: #ddd;
+          background:#212531;
+          background: linear-gradient(to right bottom, #2f3441 50%, #212531 50%);
+      }
+      .sidebar-nav .dropdown-menu {
+          position: relative;
+          width: 100%;
+          padding: 0;
+          margin: 0;
+          border-radius: 0;
+          border: none;
+          background-color: #222;
+          box-shadow: none;
+      }
+      .dropdown-menu.show {
+          top: 0;
+      }
+      /*Fontawesome icons*/
+      .nav.sidebar-nav li a::before {
+          font-family: fontawesome;
+          content: "\f12e";
+          vertical-align: baseline;
+          display: inline-block;
+          padding-right: 5px;
+      }
+      a[href*="#about"]::before {
+        content: "\f129" !important;
+      }
+        a[href*="#camera"]::before {
+          content: "\f0b1" !important;
+        }
+      a[href*="#camera1"]::before {
+        content: "\f03d" !important;
+      }
+      a[href*="#camera2"]::before {
+        content: "\f03d" !important;
+      }
+      a[href*="#books"]::before {
+        content: "\f02d" !important;
+      }
+      a[href*="#art"]::before {
+        content: "\f1fc" !important;
+      }
+      a[href*="#awards"]::before {
+        content: "\f02e" !important;
+      }
+      a[href*="#services"]::before {
+        content: "\f013" !important;
+      }
+      a[href*="#contact"]::before {
+        content: "\f086" !important;
+      }
+      /*-------------------------------*/
+      /*       Hamburger-Cross         */
+      /*-------------------------------*/
+
+      .hamburger {
+        position: fixed;
+        top: 20px;
+        z-index: 999;
+        display: block;
+        width: 32px;
+        height: 32px;
+        margin-left: 15px;
+        background: transparent;
+        border: none;
+      }
+      .hamburger:hover,
+      .hamburger:focus,
+      .hamburger:active {
+        outline: none;
+      }
+
+      .hamburger.is-closed:before {
+        content: '';
+        display: block;
+        width: 100px;
+        font-size: 14px;
+        color: #fff;
+        line-height: 32px;
+        text-align: center;
+        opacity: 0;
+        -webkit-transform: translate3d(0,0,0);
+        -webkit-transition: all .35s ease-in-out;
+      }
+      .hamburger.is-closed:hover:before {
+        opacity: 1;
+        display: block;
+        -webkit-transform: translate3d(-100px,0,0);
+        -webkit-transition: all .35s ease-in-out;
+      }
+
+      .hamburger.is-closed .hamb-top,
+      .hamburger.is-closed .hamb-middle,
+      .hamburger.is-closed .hamb-bottom,
+      .hamburger.is-open .hamb-top,
+      .hamburger.is-open .hamb-middle,
+      .hamburger.is-open .hamb-bottom {
+        position: absolute;
+        left: 0;
+        height: 4px;
+        width: 100%;
+      }
+      .hamburger.is-closed .hamb-top,
+      .hamburger.is-closed .hamb-middle,
+      .hamburger.is-closed .hamb-bottom {
+        background-color: #1a1a1a;
+      }
+      .hamburger.is-closed .hamb-top {
+        top: 5px;
+        -webkit-transition: all .35s ease-in-out;
+      }
+      .hamburger.is-closed .hamb-middle {
+        top: 50%;
+        margin-top: -2px;
+      }
+      .hamburger.is-closed .hamb-bottom {
+        bottom: 5px;
+        -webkit-transition: all .35s ease-in-out;
+      }
+
+      .hamburger.is-closed:hover .hamb-top {
+        top: 0;
+        -webkit-transition: all .35s ease-in-out;
+      }
+      .hamburger.is-closed:hover .hamb-bottom {
+        bottom: 0;
+        -webkit-transition: all .35s ease-in-out;
+      }
+      .hamburger.is-open .hamb-top,
+      .hamburger.is-open .hamb-middle,
+      .hamburger.is-open .hamb-bottom {
+        background-color: #1a1a1a;
+      }
+      .hamburger.is-open .hamb-top,
+      .hamburger.is-open .hamb-bottom {
+        top: 50%;
+        margin-top: -2px;
+      }
+      .hamburger.is-open .hamb-top {
+        -webkit-transform: rotate(45deg);
+        -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);
+      }
+      .hamburger.is-open .hamb-middle { display: none; }
+      .hamburger.is-open .hamb-bottom {
+        -webkit-transform: rotate(-45deg);
+        -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);
+      }
+      .hamburger.is-open:before {
+        content: '';
+        display: block;
+        width: 100px;
+        font-size: 14px;
+        color: #fff;
+        line-height: 32px;
+        text-align: center;
+        opacity: 0;
+        -webkit-transform: translate3d(0,0,0);
+        -webkit-transition: all .35s ease-in-out;
+      }
+      .hamburger.is-open:hover:before {
+        opacity: 1;
+        display: block;
+        -webkit-transform: translate3d(-100px,0,0);
+        -webkit-transition: all .35s ease-in-out;
+      }
+
+      /*-------------------------------*/
+      /*            Overlay            */
+      /*-------------------------------*/
+
+      .overlay {
+          position: fixed;
+          display: none;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(250,250,250,.8);
+          z-index: 1;
+      }
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+ <div id="preloader"></div>
+<div id="wrapper">
+    <div class="overlay"></div>
+
+    <!-- Sidebar -->
+    <nav
+            class="navbar navbar-inverse fixed-top"
+            id="sidebar-wrapper"
+            role="navigation"
+    >
+        <ul class="nav sidebar-nav">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <a href=""> Giám Sát Giao Thông</a>
+                </div>
+            </div>
+            <li><a href="/">Trang Chủ</a></li>
+            <li class="dropdown">
+                <a href="#camera" class="dropdown-toggle" data-toggle="dropdown">
+                    Hệ Thống Camera <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                    <div class="dropdown-header">Hệ Thống Giám Sát</div>
+                    <li><a href="/Hethongcamera1">Vi Phạm Làn Đường</a></li>
+                    <li><a href="/Hethongcamera2">Vi Phạm Mũ Bảo Hiểm </a></li>
+                    <!-- <li><a href="#books">Books</a></li>
+            <li><a href="#awards">Awards</a></li> -->
+                </ul>
+            </li>
+            <li><a href="/bb">Luật Giao Thông</a></li>
+            <li><a href="/thongke">Thống Kê Xe Vi Phạm</a></li>
+        </ul>
+    </nav>
+    <div>
+        <button
+                type="button"
+                class="hamburger animated fadeInLeft is-closed"
+                data-toggle="offcanvas"
+        >
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+        </button>
+        <div class="container">
+            <div class="wrapper_main">
+                <div class="player">
+                    <div class="player-info__wrapper" style="margin-left: -139px;">
+                        <div class="player-info">
+                            <div class="header d-flex justify-content-center">
+                                <div class="title justify-content-center">
+                                    <p style="color: red;"> MỘT SỐ QUY ĐỊNH VỀ HÀNH VI VI PHẠM LUẬT GIAO THÔNG</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                    <div class="content-left__chart">
+                                <div class="content-left">
+                                        <h2 class="text-danger" style="padding: 15px; "> CHƯƠNG I : NHỮNG QUY ĐỊNH CHUNG </h2>
+                                            <div>
+                                        <h3 class="text-danger">Điều 1. Nguyên tắc hoạt động giao thông đường bộ</h3>
+
+                                        <h6> 1. Hoạt động giao thông đường bộ phải bảo đảm thông suốt, trật tự, an toàn,
+                                            hiệu quả; góp phần phát triển kinh tế - xã hội, bảo đảm quốc phòng, an ninh
+                                            và bảo vệ môi trường.</h6>
+                                        <h6> 2. Phát triển giao thông đường bộ theo quy hoạch, từng bước hiện đại và
+                                            đồng bộ; gắn kết phương thức vận tải đường bộ với các phương thức vận tải
+                                            khác.</h6>
+                                        <h6>3. Quản lý hoạt động giao thông đường bộ được thực hiện thống nhất trên cơ
+                                            sở phân công, phân cấp trách nhiệm, quyền hạn cụ thể, đồng thời có sự phối
+                                            hợp chặt chẽ giữa các bộ, ngành và chính quyền địa phương các cấp.</h6>
+                                        <h6>4. Bảo đảm trật tự, an toàn giao thông đường bộ là trách nhiệm của cơ quan,
+                                            tổ chức, cá nhân.</h6>
+                                        <h6>5. Người tham gia giao thông phải có ý thức tự giác, nghiêm chỉnh chấp hành
+                                            quy tắc giao thông, giữ gìn an toàn cho mình và cho người khác. Chủ phương
+                                            tiện và người điều khiển phương tiện phải chịu trách nhiệm trước pháp luật
+                                            về việc bảo đảm an toàn của phương tiện tham gia giao thông đường bộ.</h6>
+                                        <h6>3. Sử dụng lòng đường, lề đường, hè phố trái phép.</h6>
+                                        <h6>4. Đưa xe cơ giới, xe máy chuyên dùng không bảo đảm tiêu chuẩn an
+                                            toàn kỹ thuật và bảo vệ môi trường tham gia giao thông đường
+                                            bộ.</h6>
+                                        <h6>5. Thay đổi tổng thành, linh kiện, phụ kiện xe cơ giới để tạm thời
+                                            đạt tiêu chuẩn kỹ thuật của xe khi đi kiểm định.</h6>
+                                        <h6>6. Đua xe, cổ vũ đua xe, tổ chức đua xe trái phép, lạng lách, đánh
+                                            võng.</h6>
+                                            </div>
+                                    </div>
+                                </div>
+
+                                <div class="content-right">
+                                    <div class="content-right__info">
+                                        <div class="position">
+                                                  <h2 class="text-danger"> CHƯƠNG II : QUY TẮC GIAO THÔNG ĐƯỜNG BỘ </h2>
+                                            <h6>1. Phá hoại đường, cầu, hầm, bến phà đường bộ, đèn tín hiệu, cọc
+                                            tiêu, biển báo hiệu, gương cầu, dải phân cách, hệ thống thoát nước
+                                            và các công trình, thiết bị khác thuộc kết cấu hạ tầng giao thông
+                                            đường bộ.</h6>
+                                            <img src="https://baodanang.vn/dataimages/201603/original/images1237217_b5.jpg">
+                                        <h6>2. Đào, khoan, xẻ đường trái phép; đặt, để chướng ngại vật trái phép
+                                            trên đường; đặt, rải vật nhọn, đổ chất gây trơn trên đường; để trái
+                                            phép vật liệu, phế thải, thải rác ra đường; mở đường, đấu nối trái
+                                            phép vào đường chính; lấn, chiếm hoặc sử dụng trái phép đất của
+                                            đường bộ, hành lang an toàn đường bộ; tự ý tháo mở nắp cống, tháo
+                                            dỡ, di chuyển trái phép hoặc làm sai lệch công trình đường bộ.</h6>
+                                            <img src="https://baodanang.vn/dataimages/201501/original/images1103945_DBP_1___Copy.jpg">
+                                             <h6>4. Bảo đảm trật tự, an toàn giao thông đường bộ là trách nhiệm của cơ quan,
+                                            tổ chức, cá nhân.</h6>
+                                        <h6>5. Người tham gia giao thông phải có ý thức tự giác, nghiêm chỉnh chấp hành
+                                            quy tắc giao thông, giữ gìn an toàn cho mình và cho người khác. Chủ phương
+                                            tiện và người điều khiển phương tiện phải chịu trách nhiệm trước pháp luật
+                                            về việc bảo đảm an toàn của phương tiện tham gia giao thông đường bộ.</h6>
+
+                                        <h6>3. Sử dụng lòng đường, lề đường, hè phố trái phép.</h6>
+
+                                        </div>
+                                        <div class="completion">
+                                            <h3 class="text-danger"> Điều 8. Các hành vi bị nghiêm</h3>
+
+                                        <h6>1. Phá hoại đường, cầu, hầm, bến phà đường bộ, đèn tín hiệu, cọc
+                                            tiêu, biển báo hiệu, gương cầu, dải phân cách, hệ thống thoát nước
+                                            và các công trình, thiết bị khác thuộc kết cấu hạ tầng giao thông
+                                            đường bộ.</h6>
+
+                                            <img src="https://baodanang.vn/dataimages/201501/original/images1103945_DBP_1___Copy.jpg">
+                                        <h6>2. Đào, khoan, xẻ đường trái phép; đặt, để chướng ngại vật trái phép
+                                            trên đường; đặt, rải vật nhọn, đổ chất gây trơn trên đường; để trái
+                                            phép vật liệu, phế thải, thải rác ra đường; mở đường, đấu nối trái
+                                            phép vào đường chính; lấn, chiếm hoặc sử dụng trái phép đất của
+                                            đường bộ, hành lang an toàn đường bộ; tự ý tháo mở nắp cống, tháo
+                                            dỡ, di chuyển trái phép hoặc làm sai lệch công trình đường bộ.</h6>
+                                            <img src="https://1.bp.blogspot.com/-rht-H0k_alw/XcJNlbHxkPI/AAAAAAAASr8/M-JNMBHupKYjxPRpy2YzXa4xujaYFWbbQCLcBGAsYHQ/s640/Set-up%2Bcompany%2Bin%2BDa%2BNang1.jpg">
+                                              <h6>4. Bảo đảm trật tự, an toàn giao thông đường bộ là trách nhiệm của cơ quan,
+                                            tổ chức, cá nhân.</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
+<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+
+<script>
+    $(document).ready(function () {
+      var trigger = $(".hamburger"),
+        overlay = $(".overlay"),
+        isClosed = false;
+
+      trigger.click(function () {
+        hamburger_cross();
+      });
+
+      function hamburger_cross() {
+        if (isClosed == true) {
+          overlay.hide();
+          trigger.removeClass("is-open");
+          trigger.addClass("is-closed");
+          isClosed = false;
+        } else {
+          overlay.show();
+          trigger.removeClass("is-closed");
+          trigger.addClass("is-open");
+          isClosed = true;
+        }
+      }
+
+      $('[data-toggle="offcanvas"]').click(function () {
+        $("#wrapper").toggleClass("toggled");
+      });
+    });
+
+
+
+
+
+
+</script>
+<!--  Xử lý dữ liệu -->
+<!--<script>-->
+
+<!--    function checkVideoAlive(videoUrl) {-->
+<!--      var video = document.getElementById("steam");-->
+<!--      var text = document.getElementById("conn-alert");-->
+<!--      var video_frame = document.getElementById("video-frame");-->
+<!--      video.onerror = function () {-->
+<!--        console.log("Video is not alive.");-->
+<!--        text.setAttribute("class", "conn");-->
+<!--        video.setAttribute("class", "img-fluid d-none");-->
+<!--      };-->
+
+<!--      video.onplay = function () {-->
+<!--        text.setAttribute("class", "conn d-none");-->
+<!--        console.log("Connected.");-->
+<!--      };-->
+<!--    }-->
+
+<!--    checkVideoAlive("http://127.0.0.1:8000/api/steam");-->
+
+
+<!--</script>-->
+<script src="@{https://cdn2.hubspot.net/hubfs/476360/Chart.js}"></script>
+<script src="@{https://cdn2.hubspot.net/hubfs/476360/utils.js}"></script>
+<script src="@{https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0/dist/chartjs-plugin-datalabels.min.js}"></script>
+<script
+        type="text/javascript"
+        src="@{//code.jquery.com/jquery-1.11.0.min.js}"
+></script>
+<script
+        type="text/javascript"
+        src="@{//code.jquery.com/jquery-migrate-1.2.1.min.js}"
+></script>
+<script
+        type="text/javascript"
+        src="@{//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js}"
+></script>
+<script>
+    var loader = document.getElementById("preloader");
+    window.addEventListener("load", vanish);
+    function vanish() {
+      loader.classList.add("display");
+    }
+    setTimeout(function () {
+      $("#preloader").fadeToggle();
+    }, 1500);
+  </script>
+</html>
