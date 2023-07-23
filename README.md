@@ -87,5 +87,6 @@ Vào được như hình dưới  là chúng ta đã cài đặt thành công
  
 -	Kết quả cuối cùng:
 ![Hình ảnh](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh11.png)
-![Hình ảnh](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh12.png)
+# DEMO
+[![Video Demo](https://raw.githubusercontent.com/LHHT-DISCOVERY/YOLOv8-Traffic-Monitoring-Systems/main/IMG_IMPL/%E1%BA%A2nh11.png)](https://www.youtube.com/watch?v=Z-aQCrljl3A)
  
