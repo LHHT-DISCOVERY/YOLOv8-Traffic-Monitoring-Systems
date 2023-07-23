@@ -93,10 +93,9 @@ Vào được như hình dưới  là chúng ta đã cài đặt thành công
 # Liên hệ
 
 ## Nếu bạn có bất kỳ câu hỏi, đề xuất hoặc báo cáo vấn đề, xin vui lòng liên hệ với chúng tôi:
+<br><br>
 
-```plaintext
-- Tên: LÝ HUỲNH HỮU TRÍ
-- Email: lytri102@gmail.com
-- FACEBOOk: https://www.facebook.com/lyshuynhshuustris.tris
-- GitHub: https://github.com/LHHT-DISCOVERY
+|     **Tên**       |       **Email**      |      **Facebook**                               |          **GitHub**               |
+|-------------------|----------------------|-------------------------------------------------|-----------------------------------|
+| LÝ HUỲNH HỮU TRÍ  |  lytri102@gmail.com  | https://www.facebook.com/lyshuynhshuustris.tris | https://github.com/LHHT-DISCOVERY |
  
